@@ -6,7 +6,7 @@ Maqueta navegable desarrollada por Trust Motors SpA para Asesorías e Inversione
 |---|---|
 | Sitio web público (buscador, comparador, calculadora) | `index.html` |
 | Ficha de proyecto: Casa Bustamante | `proyecto.html` |
-| Recorrido 3D del departamento (con modo noche) | `recorrido-3d.html` |
+| Recorrido 3D del departamento | `recorrido-3d.html` |
 | Marketplace de proyectos (Brokers) | `brokers.html` |
 | CRM y leads | `crm.html` |
 | Automatizaciones WhatsApp y correo | `automatizaciones.html` |
