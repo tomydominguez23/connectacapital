@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Conecta Capital Brokers – Marketplace</title>
+<link rel="icon" href="assets/isotipo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0A7C7E}a:hover{color:#0B1927}
+</style>
+</head>
+<body data-page="brokers">
+<div style="font-family: Inter, system-ui, sans-serif; color: #0B1927; background: #F7F5F1; display: flex; flex-wrap: wrap; min-height: 1500px">
+
+<aside style="flex: 1 1 230px; max-width: 100%; background: #0B1927; color: #FFFFFF; padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; padding: 0 10px 2px">Conecta Capital</div>
+<div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #D9B36C; padding: 0 10px 18px">Brokers · uso interno</div>
+<a href="brokers.html" aria-current="page" style="background: #0A7C7E; color: #FFFFFF; text-decoration: none; padding: 13px 12px; border-radius: 10px; font-weight: 600; font-size: 15px">Marketplace</a>
+<a href="crm.html" style="color: #C9D3E2; text-decoration: none; padding: 13px 12px; border-radius: 10px; font-weight: 500; font-size: 15px">CRM y leads</a>
+<a href="automatizaciones.html" style="color: #C9D3E2; text-decoration: none; padding: 13px 12px; border-radius: 10px; font-weight: 500; font-size: 15px">Automatizaciones</a>
+<a href="admin.html" style="color: #C9D3E2; text-decoration: none; padding: 13px 12px; border-radius: 10px; font-weight: 500; font-size: 15px">Panel del dueño</a>
+<a href="index.html" style="color: #C9D3E2; text-decoration: none; padding: 13px 12px; border-radius: 10px; font-weight: 500; font-size: 15px; margin-top: 18px; border-top: 1px solid #223444">Ver sitio público</a>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<div>
+<h1 style="margin: 0 0 4px; font-family: 'Space Grotesk', sans-serif; font-size: 30px">Marketplace de proyectos</h1>
+<p style="margin: 0; font-size: 15px; color: #535660">Todas las inmobiliarias en un solo lugar. <span id="o-total"></span> proyectos coinciden con tus filtros.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<span style="font-size: 13px; color: #535660">Sesión: vendedor</span>
+<button type="button" style="min-height: 46px; padding: 0 18px; background: #0B1927; color: #FFFFFF; border: 0; border-radius: 10px; font-family: inherit; font-weight: 600; font-size: 15px; cursor: pointer">Cargar proyecto</button>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 14px; padding: 18px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end">
+<label style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #535660">Comuna
+<select id="f-comuna" value="Todas" style="height: 46px; border: 1px solid #C5CEDB; border-radius: 8px; padding: 0 10px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+<option value="Todas">Todas</option><option value="Ciudad Empresarial">Ciudad Empresarial</option><option value="Coquimbo">Coquimbo</option><option value="La Florida">La Florida</option><option value="Las Condes">Las Condes</option><option value="Macul">Macul</option><option value="Santiago Centro">Santiago Centro</option><option value="Viña del Mar">Viña del Mar</option><option value="Ñuñoa">Ñuñoa</option>
+</select></label>
+<label style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #535660">Inmobiliaria
+<select id="f-inmo" value="Todas" style="height: 46px; border: 1px solid #C5CEDB; border-radius: 8px; padding: 0 10px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+<option value="Todas">Todas</option><option value="Exxacon">Exxacon</option><option value="Fundamenta">Fundamenta</option><option value="Ingevec">Ingevec</option><option value="Inmobiliaria por confirmar">Inmobiliaria por confirmar</option><option value="Norte Verde">Norte Verde</option><option value="Procasa">Procasa</option><option value="RVC">RVC</option>
+</select></label>
+<label style="flex: 1 1 150px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #535660">Tipología
+<select id="f-tipo" value="Todas" style="height: 46px; border: 1px solid #C5CEDB; border-radius: 8px; padding: 0 10px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+<option value="Todas">Todas</option><option value="Estudio">Estudio</option><option value="1D">1 dormitorio</option><option value="2D">2 dormitorios</option><option value="3D">3 dormitorios</option>
+</select></label>
+<label style="flex: 1 1 170px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #535660">Entrega
+<select id="f-entrega" value="Todas" style="height: 46px; border: 1px solid #C5CEDB; border-radius: 8px; padding: 0 10px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+<option value="Todas">Todas</option><option value="Inmediata">Inmediata</option><option value="2026">2026</option><option value="2027">2027 o después</option>
+</select></label>
+<label style="flex: 2 1 240px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: #535660">Valor máximo: UF <span id="o-ufMaxTxt"></span>
+<input type="range" min="2400" max="5000" step="100" id="f-ufMax" value="5000" style="height: 46px; width: 100%; accent-color: #0A7C7E"></label>
+<button type="button" id="b-limpiar" style="min-height: 46px; padding: 0 16px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 8px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Limpiar</button>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div class="pwrap" data-zona="RM" data-comuna="Ñuñoa" data-inmo="Exxacon" data-tipos="Estudio,1D,2D" data-entrega="Inmediata" data-uf="3956" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/casa-bustamante.jpg" alt="Proyecto Casa Bustamante" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">Entrega inmediata</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Casa Bustamante</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 3.956</div>
+</div>
+<div style="font-size: 13px; color: #535660">Exxacon · Ñuñoa · Estudio · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Frente al Parque Bustamante. Estudio desde 20 m², 1D desde 30 m², 2D desde 45 m². Co-work, gimnasio y quinchos panorámicos.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="RM" data-comuna="Ñuñoa" data-inmo="Fundamenta" data-tipos="Estudio,1D,2D" data-entrega="2027" data-uf="3868" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/eco-egana.jpg" alt="Proyecto Eco Egaña" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2027</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Eco Egaña</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 3.868</div>
+</div>
+<div style="font-size: 13px; color: #535660">Fundamenta · Ñuñoa · Estudio · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Cerca de Plaza Egaña, con buena conectividad.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="RM" data-comuna="Las Condes" data-inmo="Inmobiliaria por confirmar" data-tipos="1D,2D" data-entrega="2027" data-uf="4945" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/los-barbechos.jpg" alt="Proyecto Los Barbechos" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">Entrega futura</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Los Barbechos</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 4.945</div>
+</div>
+<div style="font-size: 13px; color: #535660">Inmobiliaria por confirmar · Las Condes · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Av. Las Condes 7350, esquina Los Barbechos. Piscina panorámica.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="RM" data-comuna="La Florida" data-inmo="Ingevec" data-tipos="1D,2D,3D" data-entrega="2026" data-uf="2590" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/vima.jpg" alt="Proyecto ViMA" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2026</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">ViMA</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 2.590</div>
+</div>
+<div style="font-size: 13px; color: #535660">Ingevec · La Florida · 1D · 2D · 3D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Sector residencial consolidado y bien conectado.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="RM" data-comuna="Macul" data-inmo="Fundamenta" data-tipos="Estudio,1D,2D" data-entrega="2026" data-uf="2402" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/eco-quilin.jpg" alt="Proyecto Eco Quilín" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2026</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Eco Quilín</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 2.402</div>
+</div>
+<div style="font-size: 13px; color: #535660">Fundamenta · Macul · Estudio · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">A pasos de Metro Quilín y de la futura Línea 8.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="RM" data-comuna="Santiago Centro" data-inmo="Norte Verde" data-tipos="Estudio,1D,2D" data-entrega="2026" data-uf="2490" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/carmen-marin.jpg" alt="Proyecto Carmen Marín" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2026</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Carmen Marín</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 2.490</div>
+</div>
+<div style="font-size: 13px; color: #535660">Norte Verde · Santiago Centro · Estudio · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Cercanía al Metro, servicios y alta demanda de arriendo.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="RM" data-comuna="Ciudad Empresarial" data-inmo="Procasa" data-tipos="Estudio,1D,2D" data-entrega="2026" data-uf="3587" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/tempus.jpg" alt="Proyecto Tempus" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2026</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">RM</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Tempus</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 3.587</div>
+</div>
+<div style="font-size: 13px; color: #535660">Procasa · Ciudad Empresarial · Estudio · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Nuevo polo de oficinas y servicios, con potencial de plusvalía.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="Costa" data-comuna="Viña del Mar" data-inmo="RVC" data-tipos="2D,3D" data-entrega="2026" data-uf="2620" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/parque-maranon.jpg" alt="Proyecto Parque Marañón" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2026</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">Costa</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Parque Marañón</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 2.620</div>
+</div>
+<div style="font-size: 13px; color: #535660">RVC · Viña del Mar · 2D · 3D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Altos de Viña. Quinchos con vista, gimnasio y conexión con Ruta 68.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+<div class="pwrap" data-zona="Costa" data-comuna="Coquimbo" data-inmo="Norte Verde" data-tipos="1D,2D" data-entrega="2027" data-uf="3190" style="display: contents">
+<article style="flex: 1 1 320px; max-width: 520px; background: #FFFFFF; border: 1px solid #E6E1D8; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+<div style="position: relative; height: 170px; background: #D5DEEC">
+<img src="assets/playa-penuelas.jpg" alt="Proyecto Playa Peñuelas" style="width: 100%; height: 170px; object-fit: cover; display: block">
+<span style="position: absolute; left: 12px; top: 12px; background: #FFFFFF; color: #0B1927; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">2° sem. 2028</span>
+<span style="position: absolute; right: 12px; top: 12px; background: #0B1927; color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px">Costa</span>
+</div>
+<div style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: baseline">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Playa Peñuelas</h2>
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0A7C7E; white-space: nowrap">UF 3.190</div>
+</div>
+<div style="font-size: 13px; color: #535660">Norte Verde · Coquimbo · 1D · 2D</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #535660; flex-grow: 1">Av. Peñuelas 118, a un minuto de la playa. Piscina panorámica y quinchos.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; font-size: 12px; color: #535660; background: #F7F5F1; border-radius: 10px; padding: 10px">
+<div>Stock<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Bono pie<strong style="display: block; font-size: 13px; color: #0B1927">[por cargar]</strong></div>
+<div>Comisión<strong style="display: block; font-size: 13px; color: #0B1927">[% por cargar]</strong></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #0A7C7E; color: #FFFFFF; border: 0; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Cotizar a un lead</button>
+<button type="button" style="flex: 1 1 120px; min-height: 44px; background: #FFFFFF; color: #0B1927; border: 1px solid #C5CEDB; border-radius: 9px; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer">Enviar ficha por WhatsApp</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div id="vacio" hidden>
+<div style="background: #FFFFFF; border: 1px dashed #C5CEDB; border-radius: 14px; padding: 40px; text-align: center; font-size: 15px; color: #535660">Ningún proyecto coincide con estos filtros. Sube el valor máximo en UF o limpia los filtros.</div>
+</div>
+</main>
+</div>
+<script>
+const $=(i)=>document.getElementById(i);
+function filtrar(){const c=$('f-comuna').value,i=$('f-inmo').value,t=$('f-tipo').value,e=$('f-entrega').value,u=Number($('f-ufMax').value);let n=0;
+document.querySelectorAll('.pwrap').forEach((w)=>{const d=w.dataset;const ok=(c==='Todas'||d.comuna===c)&&(i==='Todas'||d.inmo===i)&&(t==='Todas'||d.tipos.split(',').includes(t))&&(e==='Todas'||d.entrega===e)&&Number(d.uf)<=u;
+w.style.display=ok?'contents':'none';if(ok)n++;});
+$('o-total').textContent=n;$('o-ufMaxTxt').textContent=u.toLocaleString('es-CL');$('vacio').hidden=n>0;}
+['comuna','inmo','tipo','entrega','ufMax'].forEach((k)=>$('f-'+k).addEventListener('input',filtrar));
+$('b-limpiar').addEventListener('click',()=>{['comuna','inmo','tipo','entrega'].forEach((k)=>$('f-'+k).value='Todas');$('f-ufMax').value=5000;filtrar();});filtrar();
+</script>
+<link rel="stylesheet" href="assets/extras.css"><script src="assets/extras.js"></script>
+</body>
+</html>
