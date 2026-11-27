@@ -65,6 +65,29 @@
     };
     fab.onclick = () => { show(0); d.showModal(); };
   }
+
+  /* ---------- Galerías con fotos oficiales de cada inmobiliaria ---------- */
+  const gal = (base, n, first) => (first || [base + '.jpg']).concat(Array.from({ length: n }, (_, i) => base + '-' + (i + 2) + '.jpg')).map((f) => 'assets/' + f);
+  const G = [
+    ['casa-bustamante.jpg', 'casa-patio.jpg', 'casa-lobby.jpg', 'casa-bustamante-4.jpg', 'casa-bustamante-5.jpg', 'casa-bustamante-6.jpg', 'casa-bustamante-7.jpg'].map((f) => 'assets/' + f),
+    gal('eco-egana', 1), gal('los-barbechos', 0), gal('vima', 3), gal('eco-quilin', 2), gal('carmen-marin', 4), gal('tempus', 0), gal('parque-maranon', 4), gal('playa-penuelas', 5)];
+  const CRED = ['Exxacon', 'Fundamenta', '', 'Ingevec', 'Fundamenta', 'Norte Verde', '', 'RVC', 'Norte Verde'];
+  if (page === 'index' || page === 'brokers') qa('.pwrap').forEach((w, i) => {
+    const img = q('img', w), fotos = G[i]; if (!img || fotos.length < 2) return;
+    const box = img.parentElement; let k = 0; if (getComputedStyle(box).position === 'static') box.style.position = 'relative';
+    const count = el('<span class="x-count"></span>'), nombre = img.alt.replace('Proyecto ', '');
+    const go = (d) => { k = (k + d + fotos.length) % fotos.length; img.src = fotos[k]; img.alt = nombre + ', foto ' + (k + 1) + ' de ' + fotos.length; count.textContent = (k + 1) + ' / ' + fotos.length; };
+    const prev = el('<button type="button" class="x-gal prev" aria-label="Foto anterior de ' + nombre + '">‹</button>'), next = el('<button type="button" class="x-gal next" aria-label="Foto siguiente de ' + nombre + '">›</button>');
+    prev.onclick = () => go(-1); next.onclick = () => go(1); box.append(prev, next, count); go(0);
+    fotos.slice(1).forEach((f) => { const pre = new Image(); pre.loading = 'lazy'; pre.src = f; });
+  });
+  if (page === 'proyecto') {
+    const main = q('section img'), grid = main.nextElementSibling, fotos = G[0];
+    const row = el('<div class="x-thumbs" role="group" aria-label="Fotos de Casa Bustamante"></div>');
+    fotos.forEach((f, i) => { const b = el('<button type="button" aria-pressed="' + (i === 0) + '" aria-label="Ver foto ' + (i + 1) + ' de ' + fotos.length + '"><img src="' + f + '" alt=""></button>');
+      b.onclick = () => { main.src = f; qa('button', row).forEach((x) => x.setAttribute('aria-pressed', x === b)); }; row.appendChild(b); });
+    grid.replaceWith(row); row.after(el('<p class="x-credit">Imágenes: Exxacon y Connecta Capital. Referenciales.</p>'));
+  }
   if (page === 'proyecto') qa('a[href^="https://wa.me"]').forEach((a) => { a.href = WA + enc('Hola Diego, quiero evaluar Casa Bustamante (desde UF 3.956, entrega inmediata). ¿Me envías disponibilidad?'); });
   if (page === 'index' || page === 'proyecto') { document.body.classList.add('x-hasbar'); document.body.appendChild(el('<div class="x-mbar"><a class="x-btn gold" href="https://calendly.com/connectacapital/30min">Agendar 30 min</a><a class="x-btn wa" href="' + WA + enc('Hola Diego, quiero una asesoría sin costo.') + '">WhatsApp</a></div>')); }
 
